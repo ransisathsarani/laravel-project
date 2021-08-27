@@ -36,31 +36,39 @@ class ApiRunnersController extends Controller
 
     /**
      *
-     * Display the specified runner
+     * Get Runner By Id
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function runnerDetailById($id)
     {
+        try {
+            if (FormData::where('id', $id)->exists()) {
+                $formData = $this->runnerService->getById($id);
 
-        if (FormData::where('id', $id)->exists()) {
-            $formData = $this->runnerService->getById($id);
+                return response()->json([
+                    "success" => "true",
+                    "data" => $formData,
+                    "status" => 200,
 
-            return response()->json([
-                "success" => "true",
-                "data" => $formData,
-                "status" => 200,
+                ], Response::HTTP_OK);
+            } else {
+                return response()->json([
+                    "success" => "false",
+                    "data" => null,
+                    "status" => 404,
 
-            ], Response::HTTP_OK);
-        } else {
+                ], Response::HTTP_NOT_FOUND);
+            }
+        } catch (Exception $e) {
             return response()->json([
                 "success" => "false",
                 "data" => null,
-                "status" => 404,
+                "status" => 500,
+                "message" => $e->getMessage(),
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
 
-            ], Response::HTTP_NOT_FOUND);
         }
-
 
     }
 
