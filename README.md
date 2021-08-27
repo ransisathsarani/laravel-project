@@ -6,7 +6,7 @@ How to set up and run the application :
  2. Open the Terminal and run command  "composer install"
  3. Create the mysql database as "assessment" and Import the sql file
  4. Run this endpoint using postman [http://localhost/laravel-project/public/api/v1/runner/1/form-data]
- 
+ 5. You can generate Swagger Documentation by running "php artisan l5-swagger:generate"  and "php artisan serve" in your terminal.
  
  Expected Outcome: 
  
