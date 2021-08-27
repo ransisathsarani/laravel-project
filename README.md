@@ -5,7 +5,7 @@ How to set up and run the application :
  1. First clone the project into the htdocs folder inside your xampp folder. [Ex:  C:\xampp\htdocs]
  2. Open the Terminal and run command  "composer install"
  3. Create the mysql database as "assessment" and Import the sql file
- 4. Run this endpoint using postman [http://localhost/LaravelAssessment/public/api/v1/runner/1/form-data]
+ 4. Run this endpoint using postman [http://localhost/laravel-project/public/api/v1/runner/1/form-data]
  
  
  Expected Outcome: 
