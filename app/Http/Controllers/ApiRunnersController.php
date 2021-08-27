@@ -35,10 +35,26 @@ class ApiRunnersController extends Controller
 
 
     /**
+     * @OA\Get(
+     *     path="/api/v1/runner/1/form-data",
+     *      tags={"Runner"},
+     *         summary="find by id",
+     *     @OA\Parameter(
+     *          name="id",
+     *          description="Find by ID",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *     @OA\Response(response="200", description="successfully."),
+     *     security={{ "apiAuth": {} }},
+     *     @OA\Response(response="404", description="Record Not Found."),
+     *     @OA\Response(response="400", description="Bad Request."),
+     *     @OA\Response(response="500", description="Server Error.")
      *
-     * Get Runner By Id
-     * @param $id
-     * @return \Illuminate\Http\JsonResponse
+     * )
      */
     public function runnerDetailById($id)
     {

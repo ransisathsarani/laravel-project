@@ -1,0 +1,63 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My First API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/v1/runner/1/form-data": {
+            "get": {
+                "tags": [
+                    "Runner"
+                ],
+                "summary": "find by id",
+                "operationId": "e5c60c9e7d72be139f53c200bdffa9a3",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Find by ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successfully."
+                    },
+                    "404": {
+                        "description": "Record Not Found."
+                    },
+                    "400": {
+                        "description": "Bad Request."
+                    },
+                    "500": {
+                        "description": "Server Error."
+                    }
+                },
+                "security": [
+                    {
+                        "apiAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiAuth": {
+                "type": "http",
+                "description": "Login with email and password to get the authentication token",
+                "name": "Token based Based",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
